@@ -6,11 +6,8 @@ class Search
   Tmdb.default_language = "en"
 
   def self.for(params)
-    results = []
-    movie = TmdbMovie.find("#{params.keys.first.to_s}": params[query], :limit => 5)
-    movie.each { |m| results << {'title' => i.title, 'description' => i.overview} }
-    end
-    results
+    movie = TmdbMovie.find(title: params[:title], :limit => 5)
+    movie.map { |m| {'title' => m.title, 'description' => m.overview} }
   end
 
 end
