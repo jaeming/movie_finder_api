@@ -9,7 +9,7 @@ load 'search.rb'
 get '/' do
   json "Welcome to Movie Finder API."
 end
+
 get '/search' do
-  results = Search.for(params)
-  json results
+  json Search.for(params)
 end
